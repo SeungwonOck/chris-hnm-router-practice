@@ -13,7 +13,7 @@ export const fetchProducts = createAsyncThunk(
     'product/fetchAll',
     async (serarchQuery, thunkApi) => {
         try {
-            let url = `http://localhost:5000/products?q=${serarchQuery}`;
+            let url = `https://my-json-server.typicode.com/SeungwonOck/chris-hnm-router-practice/products?q=${serarchQuery}`;
             let response = await fetch(url);
             return await response.json();
         } catch (error) {
