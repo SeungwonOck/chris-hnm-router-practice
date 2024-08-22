@@ -5,10 +5,16 @@ import { useParams } from 'react-router-dom'
 import { productAction } from '../redux/actions/productAction'
 const ProductDetail = () => {
   let { id } = useParams()
-  const product = useSelector((state) => state.product.selectedItem)
-  const dispatch = useDispatch()
+  const [product, setProduct] = useState(null);
+  // const product = useSelector((state) => state.product.selectedItem)
+  // const dispatch = useDispatch()
   const getProductDetail = async () => {
-    dispatch(productAction.getProductDetail(id))
+    // dispatch(productAction.getProductDetail(id))
+    let url = `https://my-json-server.typicode.com/SeungwonOck/chris-hnm-router-practice/products/${id}`
+    let response = await fetch(url);
+    let data = await response.json();
+    console.log(data);
+    setProduct(data);
   }
   useEffect(() => {
     getProductDetail()
@@ -20,12 +26,12 @@ const ProductDetail = () => {
           <img src={product?.img}/>
         </Col>
         <Col>
-          <div className="product-info">{product?.title}</div>p
-          <div className="product-info">{product?.price}</div>
-          <div className="product-info">{product?.choice == true ? "Conscious Choice" : ""}</div>
-          <div className="product-info">{product?.new == true ? "신제품" : ""}</div>
+          <div className="product-title">{product?.title}</div>
+          <div className="product-price">{product?.price}</div>
+          <div className="product-choice">{product?.choice == true ? "Conscious Choice" : ""}</div>
+          <div className="product-new">{product?.new == true ? "신제품" : ""}</div>
           <Dropdown>
-            <Dropdown.Toggle variant="light" id="dropdown-basic">
+            <Dropdown.Toggle variant="light" id="dropdown-basic" style={{ marginBottom: '20px' }}>
               사이즈 선택
             </Dropdown.Toggle>
 
@@ -35,7 +41,7 @@ const ProductDetail = () => {
               <Dropdown.Item href="#/action-3">L</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <Button variant="dark">추가</Button>
+          <Button variant="dark" style={{ padding: '10px 20px' }}>추가</Button>
         </Col>
       </Row>
     </Container>

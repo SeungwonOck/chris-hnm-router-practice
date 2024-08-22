@@ -13,6 +13,7 @@ const Login = ({ setAuthenticate }) => {
     e.preventDefault();
     console.log("login user function issue")
     dispatch(authenticateAction.login(id, password));
+    setAuthenticate(true);
     navigate("/");
   }
   return (

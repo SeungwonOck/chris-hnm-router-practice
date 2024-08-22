@@ -8,6 +8,7 @@
 .nav-section {
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .menu-list {
@@ -50,11 +51,6 @@
   margin-bottom: 10px;
 }
 
-.product-info {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
 .choice {
   font-size: 11px;
   color: #63768a;
@@ -75,4 +71,34 @@
 .product-img {
   display: flex;
   justify-content: flex-end;
+}
+
+.product-img > img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.product-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.product-choice {
+  font-size: 16px;
+  color: #007BFF;
+  margin-bottom: 10px;
+}
+
+.product-new {
+  font-size: 16px;
+  color: #28a745;
+  margin-bottom: 20px;
 }
