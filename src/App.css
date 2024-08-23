@@ -1,6 +1,7 @@
 .login-button {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin: 20px;
   cursor: pointer;
 }
@@ -8,6 +9,28 @@
 .nav-section {
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 10px;
+}
+
+.logo {
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.menu-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+.close-icon {
+  position: fixed;
+  top: 10px;
+  left: 10px;
   cursor: pointer;
 }
 
@@ -44,6 +67,22 @@
 
 .search-box input:focus {
   outline:none
+}
+
+.sidebar-search-box {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-search-box input {
+    flex: 1;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.sidebar-search-box input:focus {
+  outline: none;
 }
 
 .card {
@@ -101,4 +140,41 @@
   font-size: 16px;
   color: #28a745;
   margin-bottom: 20px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-menu-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-menu-list li {
+  margin: 15px 0;
+}
+
+@media (max-width: 768px) {
+  .menu-area {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .sidebar-open .menu-area {
+    display: block;
+  }
 }
